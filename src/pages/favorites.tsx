@@ -12,6 +12,10 @@ import { Container, GoHomeButton } from '../styles/favoritesPage';
 type FavoritesType = {
   id: number;
   list: Array<Song>;
+  temperature: number;
+  date: string;
+  city: string;
+  songGenre: string;
 };
 
 type Song = {
