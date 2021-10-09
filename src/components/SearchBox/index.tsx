@@ -32,7 +32,7 @@ export function SearchBox() {
       <SearchButton type="button" onClick={handleSearchSongs}>
         <BsSearch />
       </SearchButton>
-      <Link href="/favorites">
+      <Link passHref href="/favorites">
         <FavoritesButton>
           <BsBookmark />
         </FavoritesButton>
