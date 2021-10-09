@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerTitle = styled.h2`
-  color: ${props => props.theme.colors.secondaryText};
+  color: ${props => props.theme.colors.orange};
 
   text-align: center;
 
@@ -40,7 +40,7 @@ export const SongBox = styled.div`
 
   text-align: center;
 
-  color: ${props => props.theme.colors.secondaryText};
+  color: ${props => props.theme.colors.orange};
 
   h3 {
     margin-top: 0.6rem;

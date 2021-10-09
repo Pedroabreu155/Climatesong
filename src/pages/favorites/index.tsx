@@ -1,8 +1,11 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { FavoritesSongsList } from '../../components/FavoritesSongsList';
 
-import { Container } from './styles';
+import { AiOutlineHome } from 'react-icons/ai';
+
+import { Container, GoHomeButton } from './styles';
 
 export default function Favorites() {
   return (
@@ -11,6 +14,11 @@ export default function Favorites() {
         <title>Climatesong | Favorites</title>
       </Head>
       <Container>
+        <Link href="/">
+          <GoHomeButton>
+            <AiOutlineHome />
+          </GoHomeButton>
+        </Link>
         <FavoritesSongsList />
         <FavoritesSongsList />
         <FavoritesSongsList />
