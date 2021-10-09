@@ -8,6 +8,7 @@ import {
   ContainerTitle,
   SongsContainer,
   SongBox,
+  SongImage,
   AddFavoritesButton,
 } from './styles';
 
@@ -51,7 +52,7 @@ export function SongsList() {
       <SongsContainer>
         {songsList.map(song => (
           <SongBox key={song.title}>
-            <div />
+            <SongImage src={song.imageUrl} />
             <h3>{song.title}</h3>
             <p>{song.singer}</p>
           </SongBox>

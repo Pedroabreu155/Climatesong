@@ -43,15 +43,14 @@ export const SongBox = styled.div`
 
   color: ${props => props.theme.colors.mainText};
 
-  div {
-    height: 80%;
-    background-image: url('x-edSheeran.jpg');
-    background-size: cover;
-  }
-
   h3 {
     margin-top: 0.6rem;
   }
+`;
+
+export const SongImage = styled.img`
+  height: 80%;
+  width: 90%;
 `;
 
 export const AddFavoritesButton = styled.button`
