@@ -9,6 +9,7 @@ declare module 'styled-components' {
       inputText: string;
       border: string;
       green: string;
+      orange: string;
     };
     fonts: {
       main: string;

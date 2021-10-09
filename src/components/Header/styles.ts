@@ -28,6 +28,8 @@ export const Logo = styled.h1`
     margin-right: 8px;
     color: ${props => props.theme.colors.secondaryText};
   }
+
+  cursor: pointer;
 `;
 
 export const Text = styled.p`

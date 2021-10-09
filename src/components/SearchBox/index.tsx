@@ -1,6 +1,13 @@
-import { BsSearch } from 'react-icons/bs';
+import Link from 'next/link';
 
-import { Container, SearchInput, SearchButton } from './styles';
+import { BsSearch, BsBookmark } from 'react-icons/bs';
+
+import {
+  Container,
+  SearchInput,
+  SearchButton,
+  FavoritesButton,
+} from './styles';
 
 export function SearchBox() {
   return (
@@ -9,6 +16,11 @@ export function SearchBox() {
       <SearchButton>
         <BsSearch />
       </SearchButton>
+      <Link href="/favorites">
+        <FavoritesButton>
+          <BsBookmark />
+        </FavoritesButton>
+      </Link>
     </Container>
   );
 }

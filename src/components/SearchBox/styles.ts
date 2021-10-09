@@ -32,10 +32,38 @@ export const SearchButton = styled.button`
   border: none;
   border-radius: 5px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   height: 100%;
   width: 6%;
 
-  background-color: orange;
+  margin-right: 1rem;
+
+  background-color: ${props => props.theme.colors.orange};
+
+  font-size: 1.25rem;
+
+  transition: filter 0.2s;
+
+  :hover {
+    filter: brightness(0.9);
+  }
+`;
+
+export const FavoritesButton = styled.button`
+  border: none;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 6%;
+
+  background-color: ${props => props.theme.colors.green};
 
   font-size: 1.25rem;
 
