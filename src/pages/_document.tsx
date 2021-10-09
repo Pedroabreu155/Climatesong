@@ -25,7 +25,6 @@ export default class NextDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
-          {this.props.styleTags}
         </Head>
         <body>
           <Main />
