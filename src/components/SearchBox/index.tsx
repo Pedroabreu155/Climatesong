@@ -25,8 +25,8 @@ export function SearchBox() {
     }
     setIsLoading(true);
     const wheater = await getWheater(locale);
-    const { temperature } = wheater;
-    getSongsByTemperature(temperature);
+    const { temperature, cityName, searchDate } = wheater;
+    getSongsByTemperature(temperature, searchDate, cityName);
   };
 
   return (

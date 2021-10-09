@@ -20,7 +20,11 @@ export function SongsProvider({ children }: SongsProviderProps) {
   const [songsList, setSongsList] = useState<SongsList>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const getSongsByTemperature = async (temperature: number) => {
+  const getSongsByTemperature = async (
+    temperature: number,
+    date: string,
+    city: string,
+  ) => {
     setIsLoading(true);
     if (temperature >= 24) {
       const genre = getSongGenre(temperature);
@@ -37,9 +41,20 @@ export function SongsProvider({ children }: SongsProviderProps) {
           imageUrl: song.images.coverart,
         };
       });
+      let songGenre;
+      if (temperature >= 32) {
+        songGenre = 'Rock';
+      }
+      if (temperature < 32 && temperature >= 24) {
+        songGenre = 'Pop';
+      }
       setSongsList({
         id: Math.round(Math.random() * 1000),
         list: songs,
+        temperature,
+        date,
+        city,
+        songGenre,
       });
       setIsLoading(false);
     } else {
@@ -60,6 +75,10 @@ export function SongsProvider({ children }: SongsProviderProps) {
         setSongsList({
           id: Math.round(Math.random() * 1000),
           list: songs,
+          temperature,
+          date,
+          city,
+          songGenre: 'Musica Clássica',
         });
         setIsLoading(false);
       }
@@ -80,6 +99,10 @@ export function SongsProvider({ children }: SongsProviderProps) {
         setSongsList({
           id: Math.round(Math.random() * 1000),
           list: songs,
+          temperature,
+          date,
+          city,
+          songGenre: 'Lofi',
         });
         setIsLoading(false);
       }

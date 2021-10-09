@@ -6,34 +6,41 @@ import {
   AddFavoritesButton,
 } from './styles';
 
-export function FavoritesSongsList() {
+type FavoritesSongsListProps = {
+  favoritesList: FavoritesType;
+};
+
+type FavoritesType = {
+  id: number;
+  temperature: number;
+  date: string;
+  city: string;
+  songGenre: string;
+  list: Array<Song>;
+};
+
+type Song = {
+  title: string;
+  singer: string;
+  imageUrl: string;
+};
+
+export function FavoritesSongsList({ favoritesList }: FavoritesSongsListProps) {
   return (
     <Container>
       <ContainerTitle>
-        Local: <strong>São Paulo</strong> - Data: <strong>09/10/2021</strong> -{' '}
-        <strong>12 °C</strong> - Estilo: <strong>Rock</strong>
+        Local: <strong>{favoritesList.city}</strong> - Data:{' '}
+        <strong>{favoritesList.date}</strong> -{' '}
+        <strong>{favoritesList.temperature} °C</strong> - Estilo:{' '}
+        <strong>{favoritesList.songGenre}</strong>
       </ContainerTitle>
       <SongsContainer>
-        <SongBox>
-          <h3>Perfect</h3>
-          <p>Ed Sheeran</p>
-        </SongBox>
-        <SongBox>
-          <h3>Perfect</h3>
-          <p>Ed Sheeran</p>
-        </SongBox>
-        <SongBox>
-          <h3>Perfect</h3>
-          <p>Ed Sheeran</p>
-        </SongBox>
-        <SongBox>
-          <h3>Perfect</h3>
-          <p>Ed Sheeran</p>
-        </SongBox>
-        <SongBox>
-          <h3>Perfect</h3>
-          <p>Ed Sheeran</p>
-        </SongBox>
+        {favoritesList.list.map(favoriteSong => (
+          <SongBox key={favoriteSong.title}>
+            <h3>{favoriteSong.title}</h3>
+            <p>{favoriteSong.singer}</p>
+          </SongBox>
+        ))}
       </SongsContainer>
       <AddFavoritesButton>Remover das listas favoritas</AddFavoritesButton>
     </Container>

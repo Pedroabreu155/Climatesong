@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
 import { ReactNode, Dispatch, SetStateAction } from 'react';
 
 export type SongsContextData = {
   songsList: SongsList;
-  // eslint-disable-next-line no-unused-vars
-  getSongsByTemperature: (temperature: number) => void;
+  getSongsByTemperature: (
+    temperature: number,
+    date: string,
+    city: string,
+  ) => void;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
 };
@@ -53,4 +57,8 @@ type Song = {
 export type SongsList = {
   id: number;
   list: Array<Song>;
+  temperature: number;
+  date: string;
+  city: string;
+  songGenre: string;
 };

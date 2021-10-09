@@ -45,7 +45,9 @@ export default function Favorites() {
         {isLoading ? (
           <h1>Carregando...</h1>
         ) : (
-          favorites.map(favorite => <FavoritesSongsList key={favorite.id} />)
+          favorites.map(favorite => (
+            <FavoritesSongsList favoritesList={favorite} key={favorite.id} />
+          ))
         )}
       </Container>
     </>
