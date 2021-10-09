@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 
 import { ThemeProvider } from 'styled-components';
-import { SongsProvider } from '../contexts/SongsContext';
+import { WheaterProvider } from '../contexts/WheaterContext';
 
 import { theme } from '../styles/theme/theme';
 
@@ -12,10 +12,10 @@ import { GlobalStyles } from '../styles/global';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <SongsProvider>
+      <WheaterProvider>
         <Header />
         <Component {...pageProps} />
-      </SongsProvider>
+      </WheaterProvider>
       <GlobalStyles />
     </ThemeProvider>
   );
