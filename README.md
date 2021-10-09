@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reconhecimento interno Alest [PRR]
 
-## Getting Started
+## Chatbot reconhecimento
 
-First, run the development server:
+O chatbot tem como objetivo salvar dados relacionados a posts de usuários no workplace da Alest para que os mesmos sejam reconhecidos internamente pela empresa! Após isso é possível ver as métricas por meio desse painel desenvolvido neste projeto.
 
-```bash
-npm run dev
-# or
-yarn dev
+<p align="center" >
+    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/85958558/134516699-c1d4101b-123b-4550-bee1-21406284a919.PNG"/>
+</p>
+
+## Links úteis 🔗
+
+Aplicação em produção: https://v2-reconhecimento-alest.web.app/ </br>
+Projeto no firebase: https://console.firebase.google.com/project/v2-reconhecimento-alest/overview</br>
+Board do monday: https://alest-consultoria.monday.com/boards/1473632145
+
+## Instalação 📦
+
+Você precisa ter o git em sua máquina para poder clonar esse repositório.
+
+Faça o clone, depois dentro do diretório raiz do projeto execute o comando no terminal:
+`yarn` ou `npm install`
+
+## Execução em ambiente de desenvolvimento ⚙️
+
+Você precisa ter o node em sua máquina na versão 14 (14.0.0 >) para poder executar esse projeto localmente.
+
+Para rodar o projeto execute o comando no terminal:
+`yarn start` ou `npm run start`
+
+Após isso acesse no seu navegador o endereço local:
+_http://localhost:3000_
+
+## Configuração das variáveis ambiente 🔐
+
+Crie dentro do diretório raiz do projeto um arquivo chamado .env.local, após isso configure as seguintes variáveis:
+
+```
+# firebase
+REACT_APP_API_KEY=valor_da_variavel
+REACT_APP_AUTH_DOMAIN=valor_da_variavel
+REACT_APP_PROJECT_ID=valor_da_variavel
+REACT_APP_STORAGE_BUCKET=valor_da_variavel
+REACT_APP_MSG_ID=valor_da_variavel
+REACT_APP_APP_ID=valor_da_variavel
+REACT_APP_MEA_ID=valor_da_variavel
+
+# CSV cloud function
+REACT_APP_CVS_API_URL=link_da_API_de_csv
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔥 Substitua o valor das variáveis por valores reais que você pegará dentro do projeto no console do firebase!
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+🔥 O link da API de CSVs você consegue por meio das cloud funcions no console do firebase, a cloud function correta tem o nome de API
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Deploy 🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Para fazer o deploy do projeto é necessário que você tenha instalado em sua máquina a CLI do firebase, para instalar execute o comando no terminal:
+`npm install firebase-tools -g` ou consulte a documentação do firebase: https://firebase.google.com/docs/cli
+_É recomendado que seja utilizado o npm para realizar a instalação global!_
 
-## Learn More
+Após a instalação da CLI você precisa fazer login com seu email @alest, para isso execute o comando:
+`firebase login`
 
-To learn more about Next.js, take a look at the following resources:
+Depois dessas configurações, dentro do diretório raiz do projeto execute o comando:
+`yarn deploy` ou `npm run deploy`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+⚠️ _Em uma das etapas do deploy aparecerá a seguinte pergunta:_ ⚠️
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+? Would you like to delete these indexes? Selecting no will continue the rest of the deployment. (y/N)
 
-## Deploy on Vercel
+⚠️ _Rensponda-a com não (n/N) para que os índices do firestore não sejam apagados, importante manter os índices!_ ⚠️
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Depois desses passos é só aguardar, o firebase lhe dará uma url de acesso ao projeto on-line!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Bom código! 🔥
