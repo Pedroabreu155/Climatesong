@@ -40,7 +40,7 @@ export function SongsList() {
           <p>Aerosmith</p>
         </SongBox>
       </SongsContainer>
-      <AddFavoritesButton>Salvar nas favoritas</AddFavoritesButton>
+      <AddFavoritesButton>Salvar lista nas favoritas</AddFavoritesButton>
     </Container>
   );
 }
