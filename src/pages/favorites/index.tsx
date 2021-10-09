@@ -1,3 +1,12 @@
+import Head from "next/head";
+
 export default function Favorites() {
-  return <h1>Favorites</h1>;
+  return (
+    <>
+      <Head>
+        <title>Climatesong | Favorites</title>
+      </Head>
+      <h1>Favorites</h1>
+    </>
+  );
 }
