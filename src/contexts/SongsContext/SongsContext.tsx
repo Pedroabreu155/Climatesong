@@ -18,8 +18,10 @@ export const SongsContext = createContext<SongsContextData>(
 
 export function SongsProvider({ children }: SongsProviderProps) {
   const [songsList, setSongsList] = useState<Song[]>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const getSongsByTemperature = async (temperature: number) => {
+    setIsLoading(true);
     if (temperature >= 24) {
       const genre = getSongGenre(temperature);
       const response: SongsAPIResponseByGenre = await songsAPI.get(
@@ -36,6 +38,7 @@ export function SongsProvider({ children }: SongsProviderProps) {
         };
       });
       setSongsList(songs);
+      setIsLoading(false);
     } else {
       if (temperature < 24 && temperature >= 16) {
         const response: SongsAPIResponseByQuery = await songsAPI.get(
@@ -52,6 +55,7 @@ export function SongsProvider({ children }: SongsProviderProps) {
           };
         });
         setSongsList(songs);
+        setIsLoading(false);
       }
       if (temperature <= 16) {
         const response: SongsAPIResponseByQuery = await songsAPI.get(
@@ -68,6 +72,7 @@ export function SongsProvider({ children }: SongsProviderProps) {
           };
         });
         setSongsList(songs);
+        setIsLoading(false);
       }
     }
   };
@@ -77,6 +82,8 @@ export function SongsProvider({ children }: SongsProviderProps) {
       value={{
         songsList,
         getSongsByTemperature,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}

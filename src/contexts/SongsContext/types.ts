@@ -1,9 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, Dispatch, SetStateAction } from 'react';
 
 export type SongsContextData = {
   songsList: Array<Song>;
   // eslint-disable-next-line no-unused-vars
   getSongsByTemperature: (temperature: number) => void;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 export type SongsProviderProps = {

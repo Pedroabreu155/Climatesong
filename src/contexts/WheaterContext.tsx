@@ -6,6 +6,7 @@ type WheaterContextData = {
   // eslint-disable-next-line no-unused-vars
   getWheater: (locale: string) => Promise<Wheater>;
   errorMessage: string;
+  wheater: Wheater;
 };
 
 type Wheater = {
@@ -35,6 +36,7 @@ export const WheaterContext = createContext<WheaterContextData>(
 
 export function WheaterProvider({ children }: WheaterProviderProps) {
   const [errorMessage, setErrorMessage] = useState('');
+  const [wheater, setWheater] = useState<Wheater>();
 
   // eslint-disable-next-line consistent-return
   const getWheater = async (locale: string) => {
@@ -47,6 +49,7 @@ export function WheaterProvider({ children }: WheaterProviderProps) {
         temperature: Math.round(response.data.main.temp),
         searchDate: new Date().toLocaleDateString(),
       };
+      setWheater(data);
       return data;
     } catch (err) {
       setErrorMessage('Cidade não encontrada!');
@@ -58,6 +61,7 @@ export function WheaterProvider({ children }: WheaterProviderProps) {
       value={{
         getWheater,
         errorMessage,
+        wheater,
       }}
     >
       {children}

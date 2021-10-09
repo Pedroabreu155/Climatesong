@@ -17,9 +17,10 @@ export function SearchBox() {
   const [locale, setLocale] = useState('');
 
   const { getWheater } = useWheater();
-  const { getSongsByTemperature } = useSongs();
+  const { getSongsByTemperature, setIsLoading } = useSongs();
 
   const handleSearchSongs = async () => {
+    setIsLoading(true);
     const wheater = await getWheater(locale);
     const { temperature } = wheater;
     getSongsByTemperature(temperature);
