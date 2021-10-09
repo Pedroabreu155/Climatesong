@@ -3,6 +3,7 @@ const theme = {
   colors: {
     mainText: '#564D65',
     secondaryText: '#3E8989',
+    inputText: '#CCC',
     border: '#564D65',
     green: '#05F140',
   },
