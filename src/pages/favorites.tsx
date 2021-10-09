@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import { AiOutlineHome } from 'react-icons/ai';
 
-import { FavoritesSongsList } from '../../components/FavoritesSongsList';
+import { FavoritesSongsList } from '../components/FavoritesSongsList';
 
-import { Container, GoHomeButton } from './styles';
+import { Container, GoHomeButton } from '../styles/favoritesPage';
 
 export default function Favorites() {
   return (

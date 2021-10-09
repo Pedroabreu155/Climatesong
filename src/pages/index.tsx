@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { SearchBox } from '../components/SearchBox';
 import { SongsList } from '../components/SongsList';
 
-import { Container } from '../styles/homeStyles';
+import { Container } from '../styles/homePage';
 
 export default function Home() {
   return (
