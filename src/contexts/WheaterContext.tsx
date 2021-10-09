@@ -3,9 +3,8 @@ import { createContext, ReactNode, useState } from 'react';
 import { apiKey, wheaterAPI } from '../services/wheaterAPI';
 
 type WheaterContextType = {
-  wheater: Wheater;
   // eslint-disable-next-line no-unused-vars
-  getWheater: (locale: string) => void;
+  getWheater: (locale: string) => Promise<Wheater>;
   errorMessage: string;
 };
 
@@ -35,9 +34,9 @@ export const WheaterContext = createContext<WheaterContextType>(
 );
 
 export function WheaterProvider({ children }: WheaterProviderProps) {
-  const [wheater, setWheater] = useState<Wheater>();
   const [errorMessage, setErrorMessage] = useState('');
 
+  // eslint-disable-next-line consistent-return
   const getWheater = async (locale: string) => {
     try {
       const response: WheaterAPIResponse = await wheaterAPI.get(
@@ -48,7 +47,7 @@ export function WheaterProvider({ children }: WheaterProviderProps) {
         temperature: Math.round(response.data.main.temp),
         searchDate: new Date().toLocaleDateString(),
       };
-      setWheater(data);
+      return data;
     } catch (err) {
       setErrorMessage('Cidade não encontrada!');
     }
@@ -57,7 +56,6 @@ export function WheaterProvider({ children }: WheaterProviderProps) {
   return (
     <WheaterContext.Provider
       value={{
-        wheater,
         getWheater,
         errorMessage,
       }}
