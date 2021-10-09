@@ -1,6 +1,7 @@
 const theme = {
-  title: 'default',
+  title: 'dark',
   colors: {
+    background: '#1a181b',
     mainText: '#3E8989',
     secondaryText: '#564D65',
     inputText: '#CCC',
@@ -14,4 +15,4 @@ const theme = {
   },
 };
 
-export { theme };
+export default theme;

@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
   body{
-    background-color: #1a181b;
+    background-color: ${props => props.theme.colors.background};
     color: #3E8989;
     -webkit-font-font-smoothing: antialiased;
   }

@@ -4,11 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import { WheaterProvider } from '../contexts/WheaterContext';
 import { SongsProvider } from '../contexts/SongsContext/SongsContext';
 
-import { theme } from '../styles/theme/theme';
-
 import { Header } from '../components/Header';
 
 import { GlobalStyles } from '../styles/global';
+
+import theme from '../styles/theme/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
