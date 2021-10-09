@@ -2,7 +2,7 @@ import { createContext, ReactNode, useState } from 'react';
 
 import { apiKey, wheaterAPI } from '../services/wheaterAPI';
 
-type WheaterContextType = {
+type WheaterContextData = {
   // eslint-disable-next-line no-unused-vars
   getWheater: (locale: string) => Promise<Wheater>;
   errorMessage: string;
@@ -29,8 +29,8 @@ type WheaterAPIResponseData = {
   };
 };
 
-export const WheaterContext = createContext<WheaterContextType>(
-  {} as WheaterContextType,
+export const WheaterContext = createContext<WheaterContextData>(
+  {} as WheaterContextData,
 );
 
 export function WheaterProvider({ children }: WheaterProviderProps) {

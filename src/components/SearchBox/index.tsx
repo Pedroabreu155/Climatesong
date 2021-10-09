@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { BsSearch, BsBookmark } from 'react-icons/bs';
 
 import { useWheater } from '../../hooks/useWheater';
+import { useSongs } from '../../hooks/useSongs';
 
 import {
   Container,
@@ -16,10 +17,12 @@ export function SearchBox() {
   const [locale, setLocale] = useState('');
 
   const { getWheater } = useWheater();
+  const { getSongsByTemperature } = useSongs();
 
   const handleSearchSongs = async () => {
     const wheater = await getWheater(locale);
-    console.log(wheater);
+    const { temperature } = wheater;
+    getSongsByTemperature(temperature);
   };
 
   return (
