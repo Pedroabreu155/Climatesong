@@ -1,8 +1,8 @@
 const theme = {
   title: 'default',
   colors: {
-    mainText: '#564D65',
-    secondaryText: '#3E8989',
+    mainText: '#3E8989',
+    secondaryText: '#564D65',
     inputText: '#CCC',
     border: '#564D65',
     green: '#05F140',

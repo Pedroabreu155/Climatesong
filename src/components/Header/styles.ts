@@ -15,10 +15,10 @@ export const Container = styled.header`
 
 export const Logo = styled.h1`
   font-weight: 400;
-  color: ${props => props.theme.colors.mainText};
+  color: ${props => props.theme.colors.secondaryText};
 
   strong {
-    color: ${props => props.theme.colors.secondaryText};
+    color: ${props => props.theme.colors.mainText};
     font-weight: 700;
   }
 
@@ -26,13 +26,13 @@ export const Logo = styled.h1`
     height: 1.5rem;
     width: 1.5rem;
     margin-right: 8px;
-    color: ${props => props.theme.colors.secondaryText};
+    color: ${props => props.theme.colors.mainText};
   }
 
   cursor: pointer;
 `;
 
 export const Text = styled.p`
-  color: ${props => props.theme.colors.secondaryText};
+  color: ${props => props.theme.colors.mainText};
   font-size: 1.25rem;
 `;
