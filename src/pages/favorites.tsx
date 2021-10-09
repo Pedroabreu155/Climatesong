@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -7,7 +9,28 @@ import { FavoritesSongsList } from '../components/FavoritesSongsList';
 
 import { Container, GoHomeButton } from '../styles/favoritesPage';
 
+type FavoritesType = {
+  id: number;
+  list: Array<Song>;
+};
+
+type Song = {
+  title: string;
+  singer: string;
+  imageUrl: string;
+};
+
 export default function Favorites() {
+  const [favorites, setFavorites] = useState<FavoritesType[]>();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const storagedFavorites = localStorage.getItem('favorites');
+    const parsedStoragedFavorites = JSON.parse(storagedFavorites);
+    setFavorites(parsedStoragedFavorites);
+    setIsLoading(false);
+  }, []);
   return (
     <>
       <Head>
@@ -19,10 +42,11 @@ export default function Favorites() {
             <AiOutlineHome />
           </GoHomeButton>
         </Link>
-        <FavoritesSongsList />
-        <FavoritesSongsList />
-        <FavoritesSongsList />
-        <FavoritesSongsList />
+        {isLoading ? (
+          <h1>Carregando...</h1>
+        ) : (
+          favorites.map(favorite => <FavoritesSongsList key={favorite.id} />)
+        )}
       </Container>
     </>
   );

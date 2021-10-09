@@ -5,7 +5,7 @@ import { songsAPI } from '../../services/songsAPI';
 import { getSongGenre } from '../../utils/songsUtils';
 
 import {
-  Song,
+  SongsList,
   SongsContextData,
   SongsProviderProps,
   SongsAPIResponseByGenre,
@@ -17,7 +17,7 @@ export const SongsContext = createContext<SongsContextData>(
 );
 
 export function SongsProvider({ children }: SongsProviderProps) {
-  const [songsList, setSongsList] = useState<Song[]>();
+  const [songsList, setSongsList] = useState<SongsList>();
   const [isLoading, setIsLoading] = useState(false);
 
   const getSongsByTemperature = async (temperature: number) => {
@@ -37,7 +37,10 @@ export function SongsProvider({ children }: SongsProviderProps) {
           imageUrl: song.images.coverart,
         };
       });
-      setSongsList(songs);
+      setSongsList({
+        id: Math.round(Math.random() * 1000),
+        list: songs,
+      });
       setIsLoading(false);
     } else {
       if (temperature < 24 && temperature >= 16) {
@@ -54,7 +57,10 @@ export function SongsProvider({ children }: SongsProviderProps) {
             imageUrl: song.track.images.coverart,
           };
         });
-        setSongsList(songs);
+        setSongsList({
+          id: Math.round(Math.random() * 1000),
+          list: songs,
+        });
         setIsLoading(false);
       }
       if (temperature <= 16) {
@@ -71,7 +77,10 @@ export function SongsProvider({ children }: SongsProviderProps) {
             imageUrl: song.track.images.coverart,
           };
         });
-        setSongsList(songs);
+        setSongsList({
+          id: Math.round(Math.random() * 1000),
+          list: songs,
+        });
         setIsLoading(false);
       }
     }

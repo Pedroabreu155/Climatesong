@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { useTheme } from 'styled-components';
 
 import { useSongs } from '../../hooks/useSongs';
@@ -13,10 +15,28 @@ import {
 } from './styles';
 
 export function SongsList() {
+  const [storagedFavorites, setStoragedFavorites] = useState([]);
+
   const { songsList, isLoading } = useSongs();
   const { wheater } = useWheater();
 
   const { colors } = useTheme();
+
+  const handleAddListToFavorites = () => {
+    const newFavorites = [songsList, ...storagedFavorites];
+    const parsedNewFavorites = JSON.stringify(newFavorites);
+    localStorage.setItem('favorites', parsedNewFavorites);
+  };
+
+  useEffect(() => {
+    const storagedData = localStorage.getItem('favorites');
+    const parsedStoragedData = JSON.parse(storagedData);
+    if (parsedStoragedData === null) {
+      setStoragedFavorites([]);
+    } else {
+      setStoragedFavorites(parsedStoragedData);
+    }
+  }, []);
 
   if (!songsList && !isLoading) {
     return (
@@ -50,7 +70,7 @@ export function SongsList() {
         clima:
       </ContainerTitle>
       <SongsContainer>
-        {songsList.map(song => (
+        {songsList.list.map(song => (
           <SongBox key={song.title}>
             <SongImage src={song.imageUrl} />
             <h3>{song.title}</h3>
@@ -58,7 +78,9 @@ export function SongsList() {
           </SongBox>
         ))}
       </SongsContainer>
-      <AddFavoritesButton>Salvar lista nas favoritas</AddFavoritesButton>
+      <AddFavoritesButton type="button" onClick={handleAddListToFavorites}>
+        Salvar lista nas favoritas
+      </AddFavoritesButton>
     </Container>
   );
 }
