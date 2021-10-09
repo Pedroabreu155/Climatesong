@@ -1,11 +1,15 @@
-# Reconhecimento interno Alest [PRR]
+# Climatesong
 
-## Chatbot reconhecimento
+## Visão Geral:
 
-O chatbot tem como objetivo salvar dados relacionados a posts de usuários no workplace da Alest para que os mesmos sejam reconhecidos internamente pela empresa! Após isso é possível ver as métricas por meio desse painel desenvolvido neste projeto.
+Climatesong é uma aplicação onde você pode encontrar músicas para ouvir relacionadas a temperatura de algum lugar que você pesquisar!
 
 <p align="center" >
-    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/85958558/134516699-c1d4101b-123b-4550-bee1-21406284a919.PNG"/>
+    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136645105-b21f5e93-c4b4-4b84-8f0d-163f82ebdb1d.PNG"/>
+</p>
+
+<p align="center" >
+    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136645142-06dd395a-9c68-483c-bfaf-947a1a2211cc.PNG"/>
 </p>
 
 ## Links úteis 🔗
