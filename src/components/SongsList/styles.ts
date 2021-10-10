@@ -14,7 +14,6 @@ export const Container = styled.div`
   border-radius: 5px;
 
   @media (max-width: 900px) {
-    padding-bottom: 1rem;
     border: none;
   }
 `;
@@ -84,8 +83,13 @@ export const AddFavoritesButton = styled.button`
 
   transition: filter 0.2s;
 
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
     width: 60%;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 380px) {
+    width: 75%;
     margin-bottom: 2rem;
   }
 

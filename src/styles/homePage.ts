@@ -9,6 +9,10 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 900px) {
+    height: 100%;
+  }
 `;
 
 export const PageTitle = styled.h1`
