@@ -8,6 +8,8 @@ export const Container = styled.header`
 
   border-bottom: 1px solid ${props => props.theme.colors.border};
 
+  background-color: #1a181b;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,4 +37,15 @@ export const Logo = styled.h1`
 export const Text = styled.p`
   color: ${props => props.theme.colors.mainText};
   font-size: 1.25rem;
+  margin: 0 auto;
+`;
+
+export const ThemeSwitcherBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-left: 2rem;
+  }
 `;

@@ -1,10 +1,10 @@
-const theme = {
-  title: 'dark',
+const light = {
+  title: 'light',
   colors: {
-    background: '#1a181b',
+    background: '#fff',
     mainText: '#3E8989',
     secondaryText: '#564D65',
-    inputText: '#CCC',
+    inputText: '#000',
     border: '#564D65',
     green: '#05F140',
     orange: '#ffa500',
@@ -15,4 +15,4 @@ const theme = {
   },
 };
 
-export default theme;
+export default light;

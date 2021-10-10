@@ -24,8 +24,13 @@ export const SearchInput = styled.input`
 
   font-size: 1.25rem;
 
-  background-color: #1a181b;
+  background-color: ${props => props.theme.colors.background};
   color: ${props => props.theme.colors.inputText};
+  caret-color: ${props => props.theme.colors.inputText};
+
+  ::placeholder {
+    color: ${props => props.theme.colors.inputText};
+  }
 `;
 
 export const SearchButton = styled.button`

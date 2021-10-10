@@ -14,9 +14,7 @@ Climatesong é uma aplicação onde você pode encontrar músicas para ouvir rel
 
 ## Links úteis 🔗
 
-Aplicação em produção: https://v2-reconhecimento-alest.web.app/ </br>
-Projeto no firebase: https://console.firebase.google.com/project/v2-reconhecimento-alest/overview</br>
-Board do monday: https://alest-consultoria.monday.com/boards/1473632145
+Aplicação em produção: https://climatesong.vercel.app/ </br>
 
 ## Instalação 📦
 
@@ -30,7 +28,7 @@ Faça o clone, depois dentro do diretório raiz do projeto execute o comando no 
 Você precisa ter o node em sua máquina na versão 14 (14.0.0 >) para poder executar esse projeto localmente.
 
 Para rodar o projeto execute o comando no terminal:
-`yarn start` ou `npm run start`
+`yarn dev` ou `npm run dev`
 
 Após isso acesse no seu navegador o endereço local:
 _http://localhost:3000_
@@ -40,41 +38,25 @@ _http://localhost:3000_
 Crie dentro do diretório raiz do projeto um arquivo chamado .env.local, após isso configure as seguintes variáveis:
 
 ```
-# firebase
-REACT_APP_API_KEY=valor_da_variavel
-REACT_APP_AUTH_DOMAIN=valor_da_variavel
-REACT_APP_PROJECT_ID=valor_da_variavel
-REACT_APP_STORAGE_BUCKET=valor_da_variavel
-REACT_APP_MSG_ID=valor_da_variavel
-REACT_APP_APP_ID=valor_da_variavel
-REACT_APP_MEA_ID=valor_da_variavel
+# Wheater API
+NEXT_PUBLIC_OPEN_WHEATER_API_KEY=valor
 
-# CSV cloud function
-REACT_APP_CVS_API_URL=link_da_API_de_csv
+# Songs API
+NEXT_PUBLIC_SHAZAM_API_KEY=valor
 ```
 
-🔥 Substitua o valor das variáveis por valores reais que você pegará dentro do projeto no console do firebase!
-
-🔥 O link da API de CSVs você consegue por meio das cloud funcions no console do firebase, a cloud function correta tem o nome de API
+🔥 Substitua o valor das variáveis por valores reais que você pegará na OpenWheaterAPI e na API do shazam para músicas.
 
 ## Deploy 🚀
 
-Para fazer o deploy do projeto é necessário que você tenha instalado em sua máquina a CLI do firebase, para instalar execute o comando no terminal:
-`npm install firebase-tools -g` ou consulte a documentação do firebase: https://firebase.google.com/docs/cli
+Para fazer o deploy do projeto é necessário que você tenha instalado em sua máquina a CLI da vercel, para instalar execute o comando no terminal:
+`npm install vercel -g` ou consulte a documentação da vercel: https://vercel.com/cli
 _É recomendado que seja utilizado o npm para realizar a instalação global!_
 
-Após a instalação da CLI você precisa fazer login com seu email @alest, para isso execute o comando:
-`firebase login`
+Após a instalação da CLI você precisa fazer login, para isso execute o comando:
+`vercel login`
 
 Depois dessas configurações, dentro do diretório raiz do projeto execute o comando:
-`yarn deploy` ou `npm run deploy`
-
-⚠️ _Em uma das etapas do deploy aparecerá a seguinte pergunta:_ ⚠️
-
-? Would you like to delete these indexes? Selecting no will continue the rest of the deployment. (y/N)
-
-⚠️ _Rensponda-a com não (n/N) para que os índices do firestore não sejam apagados, importante manter os índices!_ ⚠️
-
-Depois desses passos é só aguardar, o firebase lhe dará uma url de acesso ao projeto on-line!
+`vercel`
 
 ### Bom código! 🔥
