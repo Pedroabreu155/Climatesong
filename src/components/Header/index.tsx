@@ -17,7 +17,7 @@ export function Header({ toggleTheme }: HeaderProps) {
   const theme = useTheme();
 
   return (
-    <Container>
+    <Container id="top">
       <Link passHref href="/">
         <Logo>
           Climate <BsMusicNoteList />
