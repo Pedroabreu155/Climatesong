@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
+import { toast } from 'react-toastify';
+
 import { useSongs } from '../hooks/useSongs';
 
 type FavoritesProviderProps = {
@@ -43,6 +45,7 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
     const updatedFavorites = favorites.filter(favorite => favorite.id !== id);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     setFavorites(updatedFavorites);
+    toast.success('Removida com sucesso!');
   };
 
   const handleAddListToFavorites = () => {
@@ -50,6 +53,7 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
     const parsedNewFavorites = JSON.stringify(newFavorites);
     localStorage.setItem('favorites', parsedNewFavorites);
     setFavorites(newFavorites);
+    toast.success('Salva com sucesso!');
   };
 
   useEffect(() => {

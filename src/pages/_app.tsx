@@ -1,4 +1,8 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { AppProps } from 'next/app';
+
+import { ToastContainer } from 'react-toastify';
 
 import { ThemeProvider } from 'styled-components';
 import { WheaterProvider } from '../contexts/WheaterContext/WheaterContext';
@@ -19,6 +23,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           <FavoritesProvider>
             <Header />
             <Component {...pageProps} />
+            <ToastContainer
+              position="bottom-left"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </FavoritesProvider>
         </SongsProvider>
       </WheaterProvider>
