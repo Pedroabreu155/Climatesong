@@ -1,44 +1,16 @@
-import { useEffect, useState } from 'react';
-
 import Head from 'next/head';
 import Link from 'next/link';
 
 import { AiOutlineHome } from 'react-icons/ai';
 
+import { useFavorites } from '../hooks/useFavorites';
+
 import { FavoritesSongsList } from '../components/FavoritesSongsList';
 
 import { Container, GoHomeButton } from '../styles/favoritesPage';
 
-type FavoritesType = {
-  id: number;
-  list: Array<Song>;
-  temperature: number;
-  date: string;
-  city: string;
-  songGenre: string;
-};
-
-type Song = {
-  title: string;
-  singer: string;
-  imageUrl: string;
-};
-
 export default function Favorites() {
-  const [favorites, setFavorites] = useState<FavoritesType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const storagedFavorites = localStorage.getItem('favorites');
-    const parsedStoragedFavorites = JSON.parse(storagedFavorites);
-    if (parsedStoragedFavorites === null) {
-      setFavorites([]);
-    } else {
-      setFavorites(parsedStoragedFavorites);
-    }
-    setIsLoading(false);
-  }, []);
+  const { favorites, isLoading } = useFavorites();
   return (
     <>
       <Head>

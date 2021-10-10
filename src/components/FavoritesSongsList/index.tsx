@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
+import { useFavorites } from '../../hooks/useFavorites';
+
 import {
   Container,
   ContainerTitle,
   SongsContainer,
   SongBox,
-  AddFavoritesButton,
+  RemoveFavoritesButton,
 } from './styles';
 
 type FavoritesSongsListProps = {
@@ -28,13 +30,9 @@ type Song = {
 };
 
 export function FavoritesSongsList({ favoritesList }: FavoritesSongsListProps) {
-  const [storagedFavorites, setStoragedFavorites] = useState([]);
+  const [, setStoragedFavorites] = useState([]);
 
-  const handleRemoveListFromFavorites = (id: number) => {
-    const favorites = [...storagedFavorites];
-    const updatedFavorites = favorites.filter(favorite => favorite.id !== id);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  };
+  const { handleRemoveListFromFavorites } = useFavorites();
 
   useEffect(() => {
     const storagedData = localStorage.getItem('favorites');
@@ -62,12 +60,12 @@ export function FavoritesSongsList({ favoritesList }: FavoritesSongsListProps) {
           </SongBox>
         ))}
       </SongsContainer>
-      <AddFavoritesButton
+      <RemoveFavoritesButton
         onClick={() => handleRemoveListFromFavorites(favoritesList.id)}
         type="button"
       >
         Remover das listas favoritas
-      </AddFavoritesButton>
+      </RemoveFavoritesButton>
     </Container>
   );
 }

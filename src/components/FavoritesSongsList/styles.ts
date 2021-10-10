@@ -47,7 +47,7 @@ export const SongBox = styled.div`
   }
 `;
 
-export const AddFavoritesButton = styled.button`
+export const RemoveFavoritesButton = styled.button`
   border: none;
   border-radius: 5px;
 

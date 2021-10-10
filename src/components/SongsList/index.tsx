@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-
 import { useTheme } from 'styled-components';
 
 import { useSongs } from '../../hooks/useSongs';
 import { useWheater } from '../../hooks/useWheater';
+import { useFavorites } from '../../hooks/useFavorites';
 
 import {
   Container,
@@ -15,28 +14,11 @@ import {
 } from './styles';
 
 export function SongsList() {
-  const [storagedFavorites, setStoragedFavorites] = useState([]);
-
   const { songsList, isLoading } = useSongs();
   const { wheater } = useWheater();
+  const { handleAddListToFavorites } = useFavorites();
 
   const { colors } = useTheme();
-
-  const handleAddListToFavorites = () => {
-    const newFavorites = [songsList, ...storagedFavorites];
-    const parsedNewFavorites = JSON.stringify(newFavorites);
-    localStorage.setItem('favorites', parsedNewFavorites);
-  };
-
-  useEffect(() => {
-    const storagedData = localStorage.getItem('favorites');
-    const parsedStoragedData = JSON.parse(storagedData);
-    if (parsedStoragedData === null) {
-      setStoragedFavorites([]);
-    } else {
-      setStoragedFavorites(parsedStoragedData);
-    }
-  }, []);
 
   if (!songsList && !isLoading) {
     return (

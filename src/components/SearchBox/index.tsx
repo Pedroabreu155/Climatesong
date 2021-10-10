@@ -5,6 +5,7 @@ import { BsSearch, BsBookmark } from 'react-icons/bs';
 
 import { useWheater } from '../../hooks/useWheater';
 import { useSongs } from '../../hooks/useSongs';
+import { useFavorites } from '../../hooks/useFavorites';
 
 import {
   Container,
@@ -18,6 +19,7 @@ export function SearchBox() {
 
   const { getWheater } = useWheater();
   const { getSongsByTemperature, setIsLoading } = useSongs();
+  const { favorites } = useFavorites();
 
   const handleSearchSongs = async () => {
     if (locale === '') {
@@ -39,11 +41,15 @@ export function SearchBox() {
       <SearchButton type="button" onClick={handleSearchSongs}>
         <BsSearch />
       </SearchButton>
-      <Link passHref href="/favorites">
-        <FavoritesButton>
-          <BsBookmark />
-        </FavoritesButton>
-      </Link>
+      {favorites.length === 0 ? (
+        ''
+      ) : (
+        <Link passHref href="/favorites">
+          <FavoritesButton>
+            <BsBookmark />
+          </FavoritesButton>
+        </Link>
+      )}
     </Container>
   );
 }
