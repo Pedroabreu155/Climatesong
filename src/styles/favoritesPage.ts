@@ -41,6 +41,10 @@ export const GoTopButton = styled.a`
   margin-right: 3.75rem;
   transition: 0.3s;
 
+  @media (max-width: 950px) {
+    margin-right: 0;
+  }
+
   :hover {
     filter: brightness(1.4);
   }

@@ -12,6 +12,10 @@ export const Container = styled.div`
 
   border: 1px solid ${props => props.theme.colors.mainText};
   border-radius: 5px;
+
+  @media (max-width: 950px) {
+    height: 100vh;
+  }
 `;
 
 export const ContainerTitle = styled.h2`
@@ -31,6 +35,13 @@ export const SongsContainer = styled.div`
   flex: 1;
 
   margin-top: 1rem;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
 `;
 
 export const SongBox = styled.div`
@@ -65,6 +76,10 @@ export const RemoveFavoritesButton = styled.button`
   font-size: 1.25rem;
 
   transition: filter 0.2s;
+
+  @media (max-width: 950px) {
+    width: 75%;
+  }
 
   :hover {
     filter: brightness(0.7);
