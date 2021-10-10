@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+import { toast } from 'react-toastify';
+
 import { BsSearch, BsBookmark } from 'react-icons/bs';
 
 import { useWheater } from '../../hooks/useWheater';
@@ -25,10 +27,15 @@ export function SearchBox() {
     if (locale === '') {
       return;
     }
-    setIsLoading(true);
-    const wheater = await getWheater(locale);
-    const { temperature, cityName, searchDate } = wheater;
-    getSongsByTemperature(temperature, searchDate, cityName);
+    try {
+      setIsLoading(true);
+      const wheater = await getWheater(locale);
+      const { temperature, cityName, searchDate } = wheater;
+      getSongsByTemperature(temperature, searchDate, cityName);
+    } catch (err) {
+      toast.error('Localização não identificada!');
+      setIsLoading(false);
+    }
   };
 
   return (
