@@ -13,6 +13,11 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 350px) {
+    flex-direction: column;
+    height: 16vh;
+  }
 `;
 
 export const Logo = styled.h1`
@@ -38,6 +43,10 @@ export const Text = styled.p`
   color: ${props => props.theme.colors.mainText};
   font-size: 1.25rem;
   margin: 0 auto;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const ThemeSwitcherBox = styled.div`
@@ -47,5 +56,8 @@ export const ThemeSwitcherBox = styled.div`
 
   svg {
     margin-left: 2rem;
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
 `;
