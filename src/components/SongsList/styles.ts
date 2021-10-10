@@ -12,6 +12,11 @@ export const Container = styled.div`
 
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: 5px;
+
+  @media (max-width: 900px) {
+    padding-bottom: 1rem;
+    border: none;
+  }
 `;
 
 export const ContainerTitle = styled.h2`
@@ -29,6 +34,13 @@ export const SongsContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   flex: 1;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
 
   margin-top: 1rem;
 `;
@@ -71,6 +83,11 @@ export const AddFavoritesButton = styled.button`
   font-size: 1.25rem;
 
   transition: filter 0.2s;
+
+  @media (max-width: 400px) {
+    width: 60%;
+    margin-bottom: 2rem;
+  }
 
   :hover {
     filter: brightness(0.7);
