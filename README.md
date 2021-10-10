@@ -5,11 +5,11 @@
 Climatesong é uma aplicação onde você pode encontrar músicas para ouvir relacionadas a temperatura de algum lugar que você pesquisar!
 
 <p align="center" >
-    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136645105-b21f5e93-c4b4-4b84-8f0d-163f82ebdb1d.PNG"/>
+    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136681447-e7aa1ccc-9ba5-4cb7-beb5-9451de5a5c6c.PNG"/>
 </p>
 
 <p align="center" >
-    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136645142-06dd395a-9c68-483c-bfaf-947a1a2211cc.PNG"/>
+    <img alt="App printscreen" width="950" src="https://user-images.githubusercontent.com/66370674/136681451-f764f0c8-31f5-4647-906c-f1aa7f93dc21.PNG"/>
 </p>
 
 ## Links úteis 🔗
