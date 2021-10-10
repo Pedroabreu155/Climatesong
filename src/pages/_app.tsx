@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { WheaterProvider } from '../contexts/WheaterContext/WheaterContext';
 import { SongsProvider } from '../contexts/SongsContext/SongsContext';
-import { FavoritesProvider } from '../contexts/FavoritesContext';
+import { FavoritesProvider } from '../contexts/FavoritesContext/FavoritesContext';
 
 import { Header } from '../components/Header';
 

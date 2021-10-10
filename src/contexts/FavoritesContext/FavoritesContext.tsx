@@ -1,35 +1,14 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { toast } from 'react-toastify';
 
-import { useSongs } from '../hooks/useSongs';
+import { useSongs } from '../../hooks/useSongs';
 
-type FavoritesProviderProps = {
-  children: ReactNode;
-};
-
-type FavoritesContextData = {
-  favorites: FavoritesType[];
-  isLoading: boolean;
-  // eslint-disable-next-line no-unused-vars
-  handleRemoveListFromFavorites: (id: number) => void;
-  handleAddListToFavorites: () => void;
-};
-
-type FavoritesType = {
-  id: number;
-  list: Array<Song>;
-  temperature: number;
-  date: string;
-  city: string;
-  songGenre: string;
-};
-
-type Song = {
-  title: string;
-  singer: string;
-  imageUrl: string;
-};
+import {
+  FavoritesContextData,
+  FavoritesProviderProps,
+  FavoritesType,
+} from './types';
 
 export const FavoritesContext = createContext<FavoritesContextData>(
   {} as FavoritesContextData,
@@ -55,6 +34,10 @@ export function FavoritesProvider({ children }: FavoritesProviderProps) {
     setFavorites(newFavorites);
     toast.success('Salva com sucesso!');
   };
+
+  /* it was necessary use this useEffect cause nextjs render the page
+   based on server side so that the node server can't access browsers
+   APIs like local storage */
 
   useEffect(() => {
     setIsLoading(true);
