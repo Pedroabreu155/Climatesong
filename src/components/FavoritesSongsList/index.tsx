@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   Container,
   ContainerTitle,
@@ -26,6 +28,24 @@ type Song = {
 };
 
 export function FavoritesSongsList({ favoritesList }: FavoritesSongsListProps) {
+  const [storagedFavorites, setStoragedFavorites] = useState([]);
+
+  const handleRemoveListFromFavorites = (id: number) => {
+    const favorites = [...storagedFavorites];
+    const updatedFavorites = favorites.filter(favorite => favorite.id !== id);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+
+  useEffect(() => {
+    const storagedData = localStorage.getItem('favorites');
+    const parsedStoragedData = JSON.parse(storagedData);
+    if (parsedStoragedData === null) {
+      setStoragedFavorites([]);
+    } else {
+      setStoragedFavorites(parsedStoragedData);
+    }
+  }, []);
+
   return (
     <Container>
       <ContainerTitle>
@@ -42,7 +62,12 @@ export function FavoritesSongsList({ favoritesList }: FavoritesSongsListProps) {
           </SongBox>
         ))}
       </SongsContainer>
-      <AddFavoritesButton>Remover das listas favoritas</AddFavoritesButton>
+      <AddFavoritesButton
+        onClick={() => handleRemoveListFromFavorites(favoritesList.id)}
+        type="button"
+      >
+        Remover das listas favoritas
+      </AddFavoritesButton>
     </Container>
   );
 }

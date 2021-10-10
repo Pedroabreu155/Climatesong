@@ -25,14 +25,18 @@ type Song = {
 };
 
 export default function Favorites() {
-  const [favorites, setFavorites] = useState<FavoritesType[]>();
+  const [favorites, setFavorites] = useState<FavoritesType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
     const storagedFavorites = localStorage.getItem('favorites');
     const parsedStoragedFavorites = JSON.parse(storagedFavorites);
-    setFavorites(parsedStoragedFavorites);
+    if (parsedStoragedFavorites === null) {
+      setFavorites([]);
+    } else {
+      setFavorites(parsedStoragedFavorites);
+    }
     setIsLoading(false);
   }, []);
   return (
