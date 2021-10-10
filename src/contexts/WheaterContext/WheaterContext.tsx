@@ -1,34 +1,13 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, useState } from 'react';
 
-import { apiKey, wheaterAPI } from '../services/wheaterAPI';
+import { apiKey, wheaterAPI } from '../../services/wheaterAPI';
 
-type WheaterContextData = {
-  // eslint-disable-next-line no-unused-vars
-  getWheater: (locale: string) => Promise<Wheater>;
-  errorMessage: string;
-  wheater: Wheater;
-};
-
-type Wheater = {
-  cityName: string;
-  temperature: number;
-  searchDate: string;
-};
-
-type WheaterProviderProps = {
-  children: ReactNode;
-};
-
-type WheaterAPIResponse = {
-  data: WheaterAPIResponseData;
-};
-
-type WheaterAPIResponseData = {
-  name: string;
-  main: {
-    temp: number;
-  };
-};
+import {
+  Wheater,
+  WheaterAPIResponse,
+  WheaterContextData,
+  WheaterProviderProps,
+} from './types';
 
 export const WheaterContext = createContext<WheaterContextData>(
   {} as WheaterContextData,

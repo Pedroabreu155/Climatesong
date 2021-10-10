@@ -1,8 +1,9 @@
 import { AppProps } from 'next/app';
 
 import { ThemeProvider } from 'styled-components';
-import { WheaterProvider } from '../contexts/WheaterContext';
+import { WheaterProvider } from '../contexts/WheaterContext/WheaterContext';
 import { SongsProvider } from '../contexts/SongsContext/SongsContext';
+import { FavoritesProvider } from '../contexts/FavoritesContext';
 
 import { Header } from '../components/Header';
 
@@ -15,8 +16,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <WheaterProvider>
         <SongsProvider>
-          <Header />
-          <Component {...pageProps} />
+          <FavoritesProvider>
+            <Header />
+            <Component {...pageProps} />
+          </FavoritesProvider>
         </SongsProvider>
       </WheaterProvider>
       <GlobalStyles />
